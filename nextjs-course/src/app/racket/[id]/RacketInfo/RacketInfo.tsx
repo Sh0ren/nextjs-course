@@ -23,7 +23,7 @@ export const RacketInfo = ({racketInfo} : Props) => {
                     {racketInfo.description}
                 </h4>
         </div>
-            <Image src={racketInfo.imageUrl} alt={racketInfo.name} style={{height: 600, width: 400}}></Image>
+            <Image src={racketInfo.imageUrl} alt={racketInfo.name} height={600} width={400} ></Image>
             <h4 >{racketInfo.price} Rub.</h4>
         </div>
     );
