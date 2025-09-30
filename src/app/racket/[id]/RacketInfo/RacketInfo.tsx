@@ -8,9 +8,7 @@ interface Props {
 export const RacketInfo = ({ racketInfo }: Props) => {
     if (!racketInfo) {
         return (
-            <>
                 <h1>Racket Not Found</h1>
-            </>
         )
     }
     return (
@@ -25,7 +23,7 @@ export const RacketInfo = ({ racketInfo }: Props) => {
                 alt={racketInfo.name}
                 height={600}
                 width={400}
-            ></Image>
+            />
             <h4>{racketInfo.price} Rub.</h4>
         </div>
     )

@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { redirect } from "next/navigation"
+import Link from "next/link"
 interface Props {
     imgSrc: string
     title: string
@@ -8,15 +9,15 @@ interface Props {
 
 export const Racket = ({ imgSrc, title, id }: Props) => {
     return (
-        <div>
+        <Link href={`/racket/${id}`}>
             <Image
                 height={600}
                 width={500}
-                onClick={() => redirect(`/racket/${id}`)}
                 src={imgSrc}
                 alt={title}
-            />
+            >
+            </Image>
             <p>{title}</p>
-        </div>
+        </Link>
     )
 }
