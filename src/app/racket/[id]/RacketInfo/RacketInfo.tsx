@@ -1,18 +1,27 @@
-import { IRacket } from "@/types/types"
 import Image from "next/image"
+import { RacketsAPI } from "@/api/racketsAPI"
+import NotFound from "@/app/racket/[id]/not-found"
 
 interface Props {
-    racketInfo?: IRacket
+    id: string
 }
 
-export const RacketInfo = ({ racketInfo }: Props) => {
+export const RacketInfo = async ({ id }: Props) => {
+    const racketsApi = new RacketsAPI()
+    const racketInfo = (await racketsApi.getRacketById(id)).product
+
     if (!racketInfo) {
-        return (
-                <h1>Racket Not Found</h1>
-        )
+        return NotFound()
     }
     return (
-        <div style={{ gap: 64, display: "flex", justifyContent: "center" }}>
+        <div
+            style={{
+                gap: 64,
+                display: "flex",
+                justifyContent: "center",
+                backgroundColor: "white",
+            }}
+        >
             <div style={{ display: "flex", flexDirection: "column" }}>
                 <p style={{ textAlign: "left" }}>{racketInfo.brand.name}</p>
                 <h4>{racketInfo.name}</h4>

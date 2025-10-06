@@ -12,6 +12,7 @@ export const Header = () => {
                     padding: 16,
                     display: "flex",
                     justifyContent: "space-between",
+                    backgroundColor: 'lightgray'
                 }}
             >
                 <h3>TENNIS STORE</h3>
@@ -43,6 +44,17 @@ export const Header = () => {
                                 }
                             >
                                 Ракетки
+                            </p>
+                        </Link>
+                        <Link href='/top-10'>
+                            <p
+                                style={
+                                    pathname.startsWith("/top-10")
+                                        ? { color: "blue", fontWeight: "bold" }
+                                        : {}
+                                }
+                            >
+                                Top 10
                             </p>
                         </Link>
                     </div>

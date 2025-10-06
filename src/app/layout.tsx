@@ -15,7 +15,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang='en'>
-            <body>
+            <body style={{padding: 0, margin: 0, backgroundColor: 'lightgray'}}>
                 <Header/>
                 {children}
                 <Footer />
