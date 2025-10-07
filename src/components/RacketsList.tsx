@@ -1,9 +1,8 @@
-import { RacketsAPI } from "@/api/racketsAPI"
+import { RacketApiInstance } from "@/api/racketsAPI"
 import { Racket } from "@/components/Racket"
 
 export const RacketsList = async () => {
-    const racketsAPI = new RacketsAPI()
-    const rackets = await racketsAPI.getRacketList()
+    const rackets = await RacketApiInstance.getRacketList()
 
     return (
         <div

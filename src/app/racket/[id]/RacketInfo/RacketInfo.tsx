@@ -1,17 +1,16 @@
 import Image from "next/image"
-import { RacketsAPI } from "@/api/racketsAPI"
-import NotFound from "@/app/racket/[id]/not-found"
+import { RacketApiInstance } from "@/api/racketsAPI"
+import { notFound } from "next/navigation"
 
 interface Props {
     id: string
 }
 
 export const RacketInfo = async ({ id }: Props) => {
-    const racketsApi = new RacketsAPI()
-    const racketInfo = (await racketsApi.getRacketById(id)).product
+    const racketInfo = (await RacketApiInstance.getRacketById(id)).product
 
     if (!racketInfo) {
-        return NotFound()
+        return notFound()
     }
     return (
         <div

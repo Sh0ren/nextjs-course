@@ -18,3 +18,5 @@ export class RacketsAPI {
         return response.json()
     }
 }
+
+export const RacketApiInstance = new RacketsAPI()
