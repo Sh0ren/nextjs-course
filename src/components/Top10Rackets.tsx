@@ -1,8 +1,11 @@
-import { RacketApiInstance } from "@/api/racketsAPI"
-import { Racket } from "@/components/Racket"
+import {RacketsAPI} from "@/api/racketsAPI";
+import {Racket} from "@/components/Racket";
 
-export const RacketsList = async () => {
-    const rackets = await RacketApiInstance.getRacketList()
+
+export const Top10Rackets = async () => {
+
+    const racketsAPI = new RacketsAPI()
+    const rackets = await racketsAPI.getTop10Rackets()
 
     return (
         <div
@@ -11,10 +14,10 @@ export const RacketsList = async () => {
                 display: "flex",
                 justifyContent: "space-between",
                 overflowX: "auto",
-                width: 1000,
+                width: 1000
             }}
         >
-            {rackets.slice(0, 10).map((racket) => (
+            {rackets.map((racket) => (
                 <Racket
                     imgSrc={racket.imageUrl}
                     id={String(racket.id)}

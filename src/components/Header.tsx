@@ -1,6 +1,6 @@
 "use client"
-import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { LinkWrapper } from "@/components/LinkWrapper"
 
 export const Header = () => {
     const pathname = usePathname()
@@ -12,6 +12,7 @@ export const Header = () => {
                     padding: 16,
                     display: "flex",
                     justifyContent: "space-between",
+                    backgroundColor: "lightgray",
                 }}
             >
                 <h3>TENNIS STORE</h3>
@@ -23,28 +24,21 @@ export const Header = () => {
                             justifyContent: "space-between",
                         }}
                     >
-                        <Link href='/'>
-                            <p
-                                style={
-                                    pathname === "/"
-                                        ? { color: "blue", fontWeight: "bold" }
-                                        : {}
-                                }
-                            >
-                                Главная
-                            </p>
-                        </Link>
-                        <Link href='/rackets'>
-                            <p
-                                style={
-                                    pathname.startsWith("/rackets")
-                                        ? { color: "blue", fontWeight: "bold" }
-                                        : {}
-                                }
-                            >
-                                Ракетки
-                            </p>
-                        </Link>
+                        <LinkWrapper
+                            href={"/"}
+                            pathname={pathname}
+                            text={"Главная"}
+                        ></LinkWrapper>
+                        <LinkWrapper
+                            href={"/rackets"}
+                            text={"Ракетки"}
+                            pathname={pathname}
+                        />
+                        <LinkWrapper
+                            href={"/top-10"}
+                            text={"Top 10"}
+                            pathname={pathname}
+                        />
                     </div>
                 </div>
             </div>
